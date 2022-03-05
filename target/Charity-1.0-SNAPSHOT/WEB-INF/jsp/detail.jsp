@@ -23,6 +23,12 @@
     </div>
     <!-- Set up a container element for the button -->
     <div class="donation-container">
+        <div>
+            <c:forEach var="donationCOM" items="${donationCOMS}">
+                <div>${donationCOM.userName}</div>
+                <div>${donationCOM.amount}</div>
+            </c:forEach>
+        </div>
         <!-- PayPal Logo -->
         <table border='0' cellpadding='10' cellspacing='0' align='center'>
             <tr>

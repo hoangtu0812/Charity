@@ -34,4 +34,11 @@ public class DonationDAO {
                 " inner join Programs on Donation_details.program_id = Programs.program_id" + " where user_mail=?";
         return jdbcTemplate.query(SQL, new Object[]{email}, new DonationMapper());
     }
+
+    public List<DonationCOM> getDonationByProgramID(int id) {
+        String SQL = "select Donations.donation_id, Donations.user_mail, Donations.user_name, Donations.user_phone, Donations.donation_date, Donation_details.program_id, Donation_details.donation_amount, Programs.program_name from Donations" +
+                " inner join Donation_details on Donations.donation_id = Donation_details.donation_id" +
+                " inner join Programs on Donation_details.program_id = Programs.program_id" + " where Programs.program_id = ?";
+        return jdbcTemplate.query(SQL, new Object[]{id}, new DonationMapper());
+    }
 }

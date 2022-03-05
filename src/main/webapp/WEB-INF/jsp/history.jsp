@@ -18,13 +18,13 @@
                 <th>Thời gian giao dịch</th>
                 <th>Số tiền</th>
             </tr>
-        <c:forEach var="donationCOM" items="${donationCOMS}" >
-            <tr>
-                <td>${donationCOM.programName}</td>
-                <td>${donationCOM.date}</td>
-                <td>${donationCOM.amount}</td>
-            </tr>
-        </c:forEach>
+            <c:forEach var="donationCOM" items="${donationCOMS}">
+                <tr>
+                    <td>${donationCOM.programName}</td>
+                    <td>${donationCOM.date}</td>
+                    <td>${donationCOM.amount}</td>
+                </tr>
+            </c:forEach>
         </table>
     </div>
 
