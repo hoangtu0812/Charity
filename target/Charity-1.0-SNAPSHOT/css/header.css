@@ -1,0 +1,17 @@
+.header {
+    background-color: #B3DBFE;
+}
+.header nav {
+    background-color: #B3DBFE;
+}
+.header nav a {
+    color: #6185A5;
+}
+
+
+@media only screen and (min-width: 992px) {
+    nav {
+        width: 992px;
+    }
+
+}

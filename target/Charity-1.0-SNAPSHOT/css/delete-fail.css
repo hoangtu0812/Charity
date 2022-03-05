@@ -1,0 +1,11 @@
+.delete-fail .noti {
+    background-color: lightcoral;
+    height: 200px;
+    margin-top: 50px;
+    border-style: dotted;
+    text-align: center;
+
+}
+.delete-fail .noti h3 {
+    margin-top: 50px;
+}

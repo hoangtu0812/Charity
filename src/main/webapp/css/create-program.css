@@ -1,0 +1,13 @@
+.create-program input {
+    width: 100%;
+}
+.create-program .des textarea {
+    height: 100px;
+}
+.create-program .detail textarea {
+    height: 200px;
+}
+.create-program .submit-btn {
+    margin-top: 10px;
+    margin-left: 10px;
+}

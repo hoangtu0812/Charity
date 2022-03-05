@@ -1,0 +1,11 @@
+.account-create form {
+    width: 50%;
+}
+
+.account-create .submit-btn {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.account-create .error {
+    border-color: red !important;
+}

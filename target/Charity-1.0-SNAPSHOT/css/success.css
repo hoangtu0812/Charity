@@ -1,0 +1,11 @@
+.success .noti {
+    background-color: darkseagreen;
+    height: 200px;
+    margin-top: 50px;
+    border-style: dotted;
+    text-align: center;
+
+}
+.success .noti h3 {
+    margin-top: 50px;
+}

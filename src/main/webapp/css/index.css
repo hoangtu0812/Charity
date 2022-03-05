@@ -1,0 +1,25 @@
+.program {
+    border-style: groove;
+    border-radius: 10px;
+    height: 100%;
+    padding: 10px;
+}
+.program-container {
+    margin-top: 30px;
+}
+.program img {
+    border-radius: 10px;
+}
+
+@media only screen and (min-width: 992px) {
+    .program-list {
+        width: 992px;
+    }
+
+}
+@media only screen and (max-width: 991px) {
+    .program-list {
+        width: 80%;
+    }
+
+}

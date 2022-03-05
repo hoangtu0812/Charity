@@ -1,0 +1,18 @@
+.update-program input {
+    width: 100%;
+    border-color: #cccccc;
+}
+
+.update-program .des textarea {
+    height: 100px;
+    border-color: #cccccc;
+}
+
+.update-program .detail textarea {
+    height: 200px;
+    border-color: #cccccc;
+}
+.update-program .submit-btn {
+    margin-top: 10px;
+    margin-left: 10px;
+}
