@@ -27,7 +27,12 @@
     <bean id="donationDAO" class="dao.DonationDAO">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="268435456" />
+    </bean>
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/asset/**" location="/asset/" />
     <mvc:resources mapping="/image/**" location="/image/" />
+    <mvc:resources mapping="/upload/**" location="/upload/" />
 </beans>

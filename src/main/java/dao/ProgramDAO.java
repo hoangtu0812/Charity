@@ -30,6 +30,14 @@ public class ProgramDAO {
         String SQL = "select * from Programs order by program_endtime";
         return jdbcTemplate.query(SQL, new ProgramMapper());
     }
+    public List<Program> getActiveProgram() {
+        String SQL = "select * from Programs where program_status = 1";
+        return jdbcTemplate.query(SQL, new ProgramMapper());
+    }
+    public List<Program> getInActiveProgram() {
+        String SQL = "select * from Programs where program_status = 0";
+        return jdbcTemplate.query(SQL, new ProgramMapper());
+    }
     public int count() {
         String SQL = "select count(*) from Programs";
         int count = jdbcTemplate.queryForObject(SQL, Integer.class);
@@ -63,6 +71,24 @@ public class ProgramDAO {
     }
     public List<Program> getSortedProgramList(int first, int last) {
         List<Program> programList = getSortedProgramList();
+        List<Program> programList1 = new ArrayList<>();
+        for(int i = first; i <= last; i++) {
+            programList1.add(programList.get(i));
+        }
+        return programList1;
+    }
+
+    public List<Program> getActiveProgramList(int first, int last) {
+        List<Program> programList = getActiveProgram();
+        List<Program> programList1 = new ArrayList<>();
+        for(int i = first; i <= last; i++) {
+            programList1.add(programList.get(i));
+        }
+        return programList1;
+    }
+
+    public List<Program> getInActiveProgramList(int first, int last) {
+        List<Program> programList = getInActiveProgram();
         List<Program> programList1 = new ArrayList<>();
         for(int i = first; i <= last; i++) {
             programList1.add(programList.get(i));
@@ -110,5 +136,13 @@ public class ProgramDAO {
             }
         }
         return returnList;
+    }
+    public void disable(int id) {
+        String SQL = "update Programs set program_status = 0 where program_id = ?";
+        jdbcTemplate.update(SQL,id);
+    }
+    public void enable(int id) {
+        String SQL = "update Programs set program_status = 1 where program_id = ?";
+        jdbcTemplate.update(SQL, id);
     }
 }

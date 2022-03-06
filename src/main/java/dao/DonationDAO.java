@@ -26,6 +26,11 @@ public class DonationDAO {
         int donationID = jdbcTemplate.queryForObject(SQLMAX, Integer.class);
         String SQL1 = "insert into Donation_details (donation_id, program_id, donation_amount) values (?, ?, ?)";
         jdbcTemplate.update(SQL1, donationID, programID, amount);
+        String SQL2 = "select program_current from Programs where program_id = ?";
+        int current = jdbcTemplate.queryForObject(SQL2, new Object[] {programID}, Integer.class);
+        current = current + amount;
+        String SQL3 = "update Programs set program_current = ? where program_id = ?";
+        jdbcTemplate.update(SQL3, new Object[]{current, programID});
     }
 
     public List<DonationCOM> getDonationByEmail(String email) {

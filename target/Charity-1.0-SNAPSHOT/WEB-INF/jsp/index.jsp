@@ -23,8 +23,9 @@
                     <h4>${program.name}</h4>
                     <h5>${program.foundation}</h5>
                     <p>${program.des}</p>
-                    <span>${program.target}</span>
-                    <span>${program.left}</span>
+                    <span>${program.moneyStringCurrent}/${program.moneyString}</span>
+                    <span>${program.left} days left</span>
+<%--                    <span>${program.target}</span>--%>
                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/detail?id=${program.id}">Quyên góp</a>
                 </div>
             </div>

@@ -25,12 +25,19 @@
         </div>
         <div class="col-md-6">
             <label for="foundation">Foundation</label>
-            <input class="form-control" type="text" name="foundation" id="foundation" value="${program.foundation}"/>
+<%--            <input class="form-control" type="text" name="foundation" id="foundation" value="${program.foundation}"/>--%>
+            <select class="form-control" name="foundation" id="foundation">
+                <option value="RAIN COFFEE">RAIN COFFEE</option>
+                <option value="SUGAR Vietnam">SUGAR Vietnam</option>
+                <option value="Thien Nhan & Friend">Thien Nhan & Friend</option>
+                <option value="Sức mạnh 2000">Sức mạnh 2000</option>
+                <option value="Think Playgrounds">Think Playgrounds</option>
+            </select>
             <span style="color: red;" id="foundation-mess"></span>
         </div>
         <div class="col-md-6">
             <label for="src">Image source</label>
-            <input class="form-control" type="text" name="src" id="src" value="${program.src}"/>
+            <input class="form-control" type="text" name="src" id="src" value="${program.src}" readonly/>
             <span style="color: red" id="src-mess"></span>
         </div>
         <div class="col-md-6">

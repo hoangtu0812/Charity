@@ -1,7 +1,9 @@
 package model;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -14,6 +16,41 @@ public class Program {
     private String src;
     private int target;
     private Date end;
+    private String moneyString;
+    private int current;
+    private int status;
+    private String moneyStringCurrent;
+
+
+    public String getMoneyStringCurrent() {
+        Locale vn = new Locale("vi", "VN");
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(vn);
+        this.moneyStringCurrent = formatter.format(this.current);
+        return moneyStringCurrent;
+    }
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(int current) {
+        this.current = current;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getMoneyString() {
+        Locale vn = new Locale("vi", "VN");
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(vn);
+        this.moneyString = formatter.format(this.target);
+        return moneyString;
+    }
 
     public Program () {}
 

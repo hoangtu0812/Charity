@@ -17,6 +17,8 @@ public class ProgramMapper implements RowMapper<Program> {
         program.setSrc(rs.getString("program_imgsrc"));
         program.setTarget(rs.getInt("program_target"));
         program.setEnd(rs.getDate("program_endtime"));
+        program.setCurrent(rs.getInt("program_current"));
+        program.setStatus(rs.getInt("program_status"));
         return program;
     }
 }

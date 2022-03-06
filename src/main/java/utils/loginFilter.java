@@ -20,7 +20,7 @@ public class loginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         try {
@@ -34,6 +34,7 @@ public class loginFilter implements Filter {
             if (email != null) {
                 int role = (int) session.getAttribute("role");
                 if (role == 1) {
+                    request.setCharacterEncoding("UTF-8");
                     chain.doFilter(request, response);
                 } else {
                     resp.sendRedirect(req.getContextPath() + "/login");

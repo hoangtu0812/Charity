@@ -27,8 +27,7 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/293dbbaba2.js"
-            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/293dbbaba2.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -42,15 +41,18 @@
                     href="#">Home Page</a></li>
             <li id="charity-program"><a href="${pageContext.request.contextPath}/dashboard/program-list">Charity
                 Programs</a></li>
-            <li id="account-manager"><a href="${pageContext.request.contextPath}/dashboard/account-list">Account Manager</a></li>
+            <li id="account-manager"><a href="${pageContext.request.contextPath}/dashboard/account-list">Account
+                Manager</a></li>
         </ul>
     </div>
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <form action="${pageContext.request.contextPath}/dashboard/search-program" class="form-inline">
-                <input type="text" name="search" class="form-control mr-sm-2" placeholder="Search" value="${key}"/>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <c:if test="${programList != null}">
+                <form action="${pageContext.request.contextPath}/dashboard/search-program" class="form-inline">
+                    <input type="text" name="search" class="form-control mr-sm-2" placeholder="Search" value="${key}"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </c:if>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">(${email})</li>
                 <li class="nav-item"><a

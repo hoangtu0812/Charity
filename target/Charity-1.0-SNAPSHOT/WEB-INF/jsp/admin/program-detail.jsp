@@ -28,12 +28,12 @@
         </tr>
         <tr>
             <th class="col-md-1">Image</th>
-            <td><img style="width:100%;" src="${program.src}"/></td>
+            <td><img style="width:100%;" src="${pageContext.request.contextPath}/upload/${program.src}"/></td>
         </tr>
-        <tr>
-            <th class="col-md-1">Image source</th>
-            <td><a href="${program.src}">${program.src}</a></td>
-        </tr>
+<%--        <tr>--%>
+<%--            <th class="col-md-1">Image source</th>--%>
+<%--            <td><a href="${program.src}">${program.src}</a></td>--%>
+<%--        </tr>--%>
         <tr>
             <th class="col-md-1">Target</th>
             <td>${program.target}</td>

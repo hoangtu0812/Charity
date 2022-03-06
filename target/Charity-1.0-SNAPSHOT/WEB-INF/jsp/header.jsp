@@ -30,13 +30,14 @@
 </head>
 <body>
 <div class="header">
-    <nav class="navbar navbar-expand-md  ml-auto mr-auto">
+    <nav class="navbar navbar-expand-md  ml-auto mr-auto navbar-dark">
         <a class="navbar-brand nav-link" href="${pageContext.request.contextPath}" title="Charity Logo"><img
                 style="height: 50px;" src="${pageContext.request.contextPath}/image/logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
+<%--            <span class="navbar-toggler-icon" ></span>--%>
+            <span class="navbar-toggler-icon navbar-dark" ></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div class="collapse navbar-collapse" id="collapsibleNavbar" >
             <ul class="navbar-nav">
                 <li class="nav-item p-sm-2 pl-lg-4 pr-lg-4">
                     <a class="nav-link" href="${pageContext.request.contextPath}">Trang chủ</a>

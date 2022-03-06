@@ -25,6 +25,7 @@ public class DonationController {
         try {
             int id = Integer.parseInt(idRequest);
             int amount  = Integer.parseInt(amountRequest);
+            amount = amount * 22840;
             donationDAO.update(userMail, userName, userPhone, id, amount);
             System.out.println("Success!");
             return "redirect:/home";

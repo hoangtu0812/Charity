@@ -28,7 +28,14 @@ public class ListProgramController {
         int pageModel = programDAO.getPage();
         model.addAttribute("pageModel", pageModel);
         if(requestID == null) {
-            List<Program> programList = programDAO.getProgramList(0,9);
+            int count = programDAO.count();
+            int last;
+            if(count >= 10) {
+                last = 9;
+            } else {
+                last = count - 1;
+            }
+            List<Program> programList = programDAO.getProgramList(0,last);
             model.addAttribute("programList", programList);
             return "admin/program-list";
         } else {
