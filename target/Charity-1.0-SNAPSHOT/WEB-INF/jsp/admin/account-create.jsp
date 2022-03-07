@@ -14,17 +14,22 @@
     <form action="${pageContext.request.contextPath}/dashboard/account-create" METHOD="post" class="ml-auto mr-auto">
         <div class="col-md-12">
             <label for="email">E-mail</label>
-            <input class="form-control" type="email" name="email" id="email"/>
+            <input class="form-control" type="email" name="email" id="email" value="${resEmail}"/>
             <span style="color: red;" id="email-mess"></span>
         </div>
         <div class="col-md-12">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" id="password"/>
+            <input class="form-control" type="password" name="password" id="password" value="${password}"/>
             <span style="color: red;" id="password-mess"></span>
         </div>
         <div class="col-md-12">
+            <label for="confirmPassword">Confirm Password</label>
+            <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" value="${confirmPassword}"/>
+            <span style="color: red;" id="confirmPassword-mess"></span>
+        </div>
+        <div class="col-md-12">
             <label for="name">Full name</label>
-            <input class="form-control" type="text" name="name" id="name"/>
+            <input class="form-control" type="text" name="name" id="name" value="${name}"/>
             <span style="color: red;" id="name-mess"></span>
         </div>
         <div class="col-md-12">
@@ -36,12 +41,12 @@
         </div>
         <div class="col-md-12">
             <label for="address">Address</label>
-            <input class="form-control" type="text" name="address" id="address"/>
+            <input class="form-control" type="text" name="address" id="address" value="${address}"/>
             <span style="color: red;" id="address-mess"></span>
         </div>
         <div class="col-md-12">
             <label for="phone">Phone number</label>
-            <input class="form-control" type="text" name="phone" id="phone"/>
+            <input class="form-control" type="text" name="phone" id="phone" value="${phone}"/>
             <span style="color: red;" id="phone-mess"></span>
         </div>
         <input class="submit-btn btn btn-primary" type="submit" value="Submit" onclick="return submitValidate()"/>

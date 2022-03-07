@@ -23,11 +23,19 @@ public class AccountCreateController {
         response.setCharacterEncoding("UTF-8");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String confirmPassword = request.getParameter("confirmPassword");
         String name = request.getParameter("name");
         String role = request.getParameter("role");
 
         String address = request.getParameter("address");
         String phone = request.getParameter("phone");
+        model.addAttribute("resEmail", email);
+        model.addAttribute("password", password);
+        model.addAttribute("confirmPassword", confirmPassword);
+        model.addAttribute("name", name);
+        model.addAttribute("role", role);
+        model.addAttribute("address", address);
+        model.addAttribute("phone", phone);
         if (email == null || password == null || name == null || role == null || address == null || phone == null) {
             return "admin/account-create";
         }
@@ -35,18 +43,23 @@ public class AccountCreateController {
             return "admin/account-create";
         }
         if (!accountDAO.exist(email)) {
-            if (accountDAO.validate(email, password)) {
-                try {
-                    int roleP = Integer.parseInt(role);
-                    accountDAO.create(email, password, name, roleP, address, phone);
-                    System.out.println("Success!");
-                    return "redirect:/dashboard/account-list";
-                } catch (Exception e) {
-                    e.printStackTrace();
+            if (password.equals(confirmPassword)) {
+                if (accountDAO.validate(email, password)) {
+                    try {
+                        int roleP = Integer.parseInt(role);
+                        accountDAO.create(email, password, name, roleP, address, phone);
+                        System.out.println("Success!");
+                        return "redirect:/dashboard/account-list";
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return "admin/account-create";
+                    }
+                } else {
+                    model.addAttribute("error", "Username is already exist!");
                     return "admin/account-create";
                 }
             } else {
-                model.addAttribute("error", "Username is already exist!");
+                model.addAttribute("error", "Please re-enter your password!");
                 return "admin/account-create";
             }
         } else {

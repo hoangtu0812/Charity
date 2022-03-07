@@ -16,7 +16,7 @@
     <div class="detail-container">
         <h2>${program.name}</h2>
         <p>${program.des}</p>
-        <img src="${program.src}"/>
+        <img src="${pageContext.request.contextPath}/upload/${program.src}"/>
         <div>
             <p>${program.detail}</p>
         </div>

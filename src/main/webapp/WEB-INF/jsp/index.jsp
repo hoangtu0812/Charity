@@ -17,18 +17,23 @@
     </div>
     <div class="program-list row ml-auto mr-auto">
         <c:forEach var="program" items="${programList}">
+            <%--            <c:if test="${program.status == 1}">--%>
             <div class="col-12 col-lg-4 program-container">
                 <div class="program">
-                    <img style="width: 100%;" src="${program.src}"/>
+                    <img style="width: 100%;" src="${pageContext.request.contextPath}/upload/${program.src}"/>
                     <h4>${program.name}</h4>
                     <h5>${program.foundation}</h5>
                     <p>${program.des}</p>
-                    <span>${program.moneyStringCurrent}/${program.moneyString}</span>
-                    <span>${program.left} days left</span>
-<%--                    <span>${program.target}</span>--%>
-                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/detail?id=${program.id}">Quyên góp</a>
+                    <div class="donation-container">
+                        <div>${program.moneyStringCurrent}/${program.moneyString}</div>
+                        <div>Còn lại ${program.left} ngày</div>
+                            <%--                    <span>${program.target}</span>--%>
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/detail?id=${program.id}">Quyên
+                            góp</a>
+                    </div>
                 </div>
             </div>
+            <%--            </c:if>--%>
         </c:forEach>
     </div>
 </div>

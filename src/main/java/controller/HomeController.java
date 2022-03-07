@@ -1,4 +1,4 @@
-package controller.admin;
+package controller;
 
 
 import dao.ProgramDAO;
@@ -19,8 +19,9 @@ public class HomeController {
 
     @RequestMapping(value = "/home")
     public String processRequest(HttpServletRequest request, HttpServletResponse response, Model model) {
-        List<Program> programList = programDAO.getSortedProgramList(0,5);
+        List<Program> programList = programDAO.getActiveProgramList(0,5);
         model.addAttribute("programList", programList);
         return "index";
     }
+
 }

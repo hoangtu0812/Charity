@@ -31,7 +31,7 @@ public class ProgramDAO {
         return jdbcTemplate.query(SQL, new ProgramMapper());
     }
     public List<Program> getActiveProgram() {
-        String SQL = "select * from Programs where program_status = 1";
+        String SQL = "select * from Programs where program_status = 1 order by program_endtime";
         return jdbcTemplate.query(SQL, new ProgramMapper());
     }
     public List<Program> getInActiveProgram() {

@@ -14,6 +14,10 @@ $(document).ready(function () {
     $('#phone').blur(function () {
         phoneValidate();
     })
+    $('#confirmPassword').blur(function () {
+        confirmPassword();
+    })
+
 })
 
 function validateEmail() {
@@ -75,7 +79,7 @@ function addValidate() {
 
 function phoneValidate() {
     let input = $('#phone').val();
-    if(input.trim() === '' || input.trim() == null || input.length !== 10) {
+    if(input.trim() === '' || input.trim() == null || input.length !== 10 || isNaN(input)) {
         $('#phone').addClass('error');
         $('#phone-mess').text('Phone number is invalid!');
         return false;
@@ -86,9 +90,25 @@ function phoneValidate() {
     }
 }
 function submitValidate() {
-    if (validateEmail() && pwdValidate() && nameValidate() && addValidate() && phoneValidate()) {
+    if (validateEmail() && pwdValidate() && nameValidate() && addValidate() && phoneValidate() && confirmPassword()) {
         return true;
     } else {
         return false;
     }
+}
+
+function confirmPassword() {
+    let pwd = $('#password').val();
+    let confPwd = $('#confirmPassword').val();
+    if(pwd != confPwd) {
+        $('#confirmPassword').addClass('error');
+        $('#confirmPassword-mess').text('Password is not same!');
+        return false;
+    } else {
+        $('#confirmPassword').removeClass('error');
+        $('#confirmPassword-mess').text('');
+        return true;
+    }
+
+
 }

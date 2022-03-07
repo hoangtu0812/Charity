@@ -1,0 +1,6 @@
+.register-success {
+    border-style: dot-dot-dash;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: darkseagreen;
+}

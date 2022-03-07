@@ -25,14 +25,20 @@ public class CreateProgramController {
         response.setCharacterEncoding("UTF-8");
 
         String name = request.getParameter("name");
-        System.out.println(name);
+//        System.out.println(name);
         String des = request.getParameter("des");
         String detail = request.getParameter("detail");
         String foundation = request.getParameter("foundation");
 //        String src = request.getParameter("src");
         String fileName = file.getOriginalFilename();
         String targetRequest = request.getParameter("target");
+
+        model.addAttribute("name", name);
+        model.addAttribute("des", des);
+        model.addAttribute("detail", detail);
+        model.addAttribute("target", targetRequest);
         if (name == null || des == null || detail == null || foundation == null || fileName == null || targetRequest == null) {
+            model.addAttribute("error", "Please fill the form");
             return "admin/create-program";
         }
         try {
@@ -48,10 +54,12 @@ public class CreateProgramController {
                 return "admin/success";
             } catch (Exception e) {
                 e.printStackTrace();
+                model.addAttribute("error", "Create failed!");
                 return "admin/create-program";
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();
+            model.addAttribute("error", "Create failed!");
             return "admin/create-program";
         }
 

@@ -22,42 +22,40 @@ public class AccountRegisterController {
         response.setCharacterEncoding("UTF-8");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String confirmPassword = request.getParameter("confirmPassword");
         String name = request.getParameter("name");
         String address = request.getParameter("address");
         String phone = request.getParameter("phone");
-        if(email == null || password == null || name == null || address == null || phone == null) {
+        model.addAttribute("resEmail", email);
+        model.addAttribute("password", password);
+        model.addAttribute("confirmPassword", confirmPassword);
+        model.addAttribute("name", name);
+        model.addAttribute("address", address);
+        model.addAttribute("phone", phone);
+        if (email == null || password == null || name == null || address == null || phone == null) {
             return "register";
         }
         try {
-            if(email.trim().equals("") || password.trim().equals("")|| name.trim().equals("")||address.trim().equals("")||phone.trim().equals("")){
-                model.addAttribute("email", email);
-                model.addAttribute("password",password);
-                model.addAttribute("name",name);
-                model.addAttribute("address",address);
-                model.addAttribute("phone",phone);
-                model.addAttribute("error","Vui lòng điền đầy đủ thông tin!");
+            if (email.trim().equals("") || password.trim().equals("") || name.trim().equals("") || address.trim().equals("") || phone.trim().equals("")) {
+
+                model.addAttribute("error", "Vui lòng điền đầy đủ thông tin!");
                 return "register";
             }
-            if(!accountDAO.exist(email)) {
-                if(accountDAO.validate(email,password)) {
-                    accountDAO.create(email,password,name,0,address,phone);
-                    return "register-successfull";
+            if (!accountDAO.exist(email)) {
+                if (password.equals(confirmPassword)) {
+                    if (accountDAO.validate(email, password)) {
+                        accountDAO.create(email, password, name, 0, address, phone);
+                        return "register-successfull";
+                    } else {
+                        model.addAttribute("error", accountDAO.getMessage());
+                        return "register";
+                    }
                 } else {
-                    model.addAttribute("email", email);
-                    model.addAttribute("password",password);
-                    model.addAttribute("name",name);
-                    model.addAttribute("address",address);
-                    model.addAttribute("phone",phone);
-                    model.addAttribute("error",accountDAO.getMessage());
+                    model.addAttribute("error","Mật khẩu phải trùng khớp!");
                     return "register";
                 }
             } else {
-                model.addAttribute("email", email);
-                model.addAttribute("password",password);
-                model.addAttribute("name",name);
-                model.addAttribute("address",address);
-                model.addAttribute("phone",phone);
-                model.addAttribute("error","Email đã tồn tại!");
+                model.addAttribute("error", "Email đã tồn tại!");
                 return "register";
             }
 
@@ -71,12 +69,6 @@ public class AccountRegisterController {
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerForm(Model model) {
-        model.addAttribute("email", "");
-        model.addAttribute("password","");
-        model.addAttribute("name","");
-        model.addAttribute("address","");
-        model.addAttribute("phone","");
-        model.addAttribute("error","");
         return "register";
     }
 }
