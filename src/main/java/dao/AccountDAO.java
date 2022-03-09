@@ -4,6 +4,7 @@ package dao;
 import javax.sql.DataSource;
 
 import model.Account;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -165,5 +166,18 @@ public class AccountDAO {
         } else {
             return true;
         }
+    }
+
+    public String newPassword(String email) {
+        String randomPassword = RandomStringUtils.randomAlphanumeric(10);
+
+        String SQL = "update Account set user_password = ? where user_mail = ?";
+        jdbcTemplate.update(SQL, hashPassword(randomPassword), email);
+        return randomPassword;
+
+    }
+    public void changePassword(String email, String password) {
+        String SQL = "update Account set user_password = ? where user_mail = ?";
+        jdbcTemplate.update(SQL, hashPassword(password), email);
     }
 }

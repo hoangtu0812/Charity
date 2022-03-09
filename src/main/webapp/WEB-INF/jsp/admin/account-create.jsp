@@ -52,7 +52,7 @@
         <input class="submit-btn btn btn-primary" type="submit" value="Submit" onclick="return submitValidate()"/>
         <input type="reset"  value="Reset" class="submit-btn btn btn-primary"/>
         <a href="${pageContext.request.contextPath}/dashboard/account-list" class="submit-btn btn btn-primary">Cancel</a>
-        <p style="color: red; margin-left: 10px;">${error}</p>
+        <span style="color: red; margin-left: 10px;">${error}</span>
     </form>
 </div>
 <script src="${pageContext.request.contextPath}/asset/create-account-admin.js"></script>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 
 @Controller
 public class DonationController {
@@ -16,7 +17,9 @@ public class DonationController {
     DonationDAO donationDAO;
 
     @RequestMapping(value = "/donation")
-    public String processRequest(HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String processRequest(HttpServletRequest request, HttpServletResponse response, Model model) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String userMail = request.getParameter("userMail");
         String userName = request.getParameter("userName");
         String userPhone = request.getParameter("userPhone");

@@ -59,7 +59,7 @@ function nameValidate() {
         return false;
     } else {
         $('#name').removeClass('error');
-        $('#name-mess').val();
+        $('#name-mess').text('');
         return true;
     }
 }

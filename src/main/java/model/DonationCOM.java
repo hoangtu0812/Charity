@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Date;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class DonationCOM {
     private int id;
@@ -11,6 +13,14 @@ public class DonationCOM {
     private int programID;
     private int amount;
     private String programName;
+    private String amountVND;
+
+    public String getAmountVND() {
+        Locale vn = new Locale("vi", "VN");
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(vn);
+        this.amountVND = formatter.format(this.amount);
+        return amountVND;
+    }
 
     public DonationCOM() {
 

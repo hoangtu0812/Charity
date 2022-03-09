@@ -4,7 +4,9 @@
     border-style: groove;
     border-radius: 5px;
 }
-
+.error {
+    border-color: red !important;
+}
 
 
 

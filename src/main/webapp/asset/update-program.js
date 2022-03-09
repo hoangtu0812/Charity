@@ -31,9 +31,9 @@ function nameValidation() {
         $("#name").css("border-color", "red");
         $("#name-mess").text("This field is required!");
         return false;
-    } else if(input.length >= 100) {
+    } else if(input.length >= 200) {
         $("#name").css("border-color", "red");
-        $("#name-mess").text("Program name must be less than 100 character!");
+        $("#name-mess").text("Program name must be less than 200 character!");
         return false;
     } else {
         $("#name").css("border-color", "#cccccc");

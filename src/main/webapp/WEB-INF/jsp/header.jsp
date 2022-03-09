@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/registersuccess.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/resetpassword.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/detail.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/checkout.css">
     <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/image/logo.png"/>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -27,6 +30,8 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/293dbbaba2.js"
             crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 </head>
 <body>
@@ -35,10 +40,10 @@
         <a class="navbar-brand nav-link" href="${pageContext.request.contextPath}" title="Charity Logo"><img
                 style="height: 50px;" src="${pageContext.request.contextPath}/image/logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-<%--            <span class="navbar-toggler-icon" ></span>--%>
-            <span class="navbar-toggler-icon navbar-dark" ></span>
+            <%--            <span class="navbar-toggler-icon" ></span>--%>
+            <span class="navbar-toggler-icon navbar-dark"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar" >
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item p-sm-2 pl-lg-4 pr-lg-4">
                     <a class="nav-link" href="${pageContext.request.contextPath}">Trang chủ</a>
@@ -57,22 +62,23 @@
                 </li>
                 <li class="nav-item p-sm-2 pl-lg-4 pr-lg-4">
 
-<%--                    <c:if test="${email != null}">--%>
-<%--                        <div class="row">--%>
-<%--                            <a class="nav-link" href="#">${email}</a>--%>
-<%--                            <a class="nav-link" href="<c:url value="/logout"/> ">Đăng xuất</a>--%>
-<%--                        </div>--%>
-<%--                    </c:if>--%>
+                    <%--                    <c:if test="${email != null}">--%>
+                    <%--                        <div class="row">--%>
+                    <%--                            <a class="nav-link" href="#">${email}</a>--%>
+                    <%--                            <a class="nav-link" href="<c:url value="/logout"/> ">Đăng xuất</a>--%>
+                    <%--                        </div>--%>
+                    <%--                    </c:if>--%>
                     <c:if test="${email != null}">
                         <div class="dropdown show">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ${email}
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${email}
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="<c:url value="/history"/> ">History</a>
-                                <a class="dropdown-item" href="<c:url value="/logout"/> ">Logout</a>
+                                <a class="dropdown-item" href="<c:url value="/change-password"/> ">Đổi mật khẩu</a>
+                                <a class="dropdown-item" href="<c:url value="/history"/> ">Lịch sử quyên góp</a>
+                                <a class="dropdown-item" href="<c:url value="/logout"/> ">Đăng xuất</a>
                             </div>
                         </div>
                     </c:if>
@@ -81,6 +87,10 @@
                     </c:if>
                 </li>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 </div>

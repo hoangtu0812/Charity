@@ -1,0 +1,18 @@
+.checkout {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+
+@media only screen and (min-width: 992px) {
+    .checkout {
+        width: 992px;
+    }
+
+}
+@media only screen and (max-width: 991px) {
+    .checkout {
+        width: 80%;
+    }
+
+}

@@ -38,5 +38,27 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>email</param-name>
+        <param-value>phamhoangtu.info@gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>Hoang Tu</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>44254246az</param-value>
+    </context-param>
 
 </web-app>

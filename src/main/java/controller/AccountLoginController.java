@@ -49,10 +49,11 @@ public class AccountLoginController {
     public String processRequest(HttpServletRequest request, HttpServletResponse response, Model model) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
         try{
             request.getSession(true).invalidate();
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
+
             HttpSession session = request.getSession(true);
 
             if(!accountDAO.validate(email, password)) {

@@ -32,6 +32,12 @@ public class DonationDAO {
         String SQL3 = "update Programs set program_current = ? where program_id = ?";
         jdbcTemplate.update(SQL3, new Object[]{current, programID});
     }
+    public List<DonationCOM> getDonationList() {
+        String SQL = "select Donations.donation_id, Donations.user_mail, Donations.user_name, Donations.user_phone, Donations.donation_date, Donation_details.program_id, Donation_details.donation_amount, Programs.program_name from Donations" +
+                " inner join Donation_details on Donations.donation_id = Donation_details.donation_id" +
+                " inner join Programs on Donation_details.program_id = Programs.program_id";
+        return jdbcTemplate.query(SQL, new DonationMapper());
+    }
 
     public List<DonationCOM> getDonationByEmail(String email) {
         String SQL = "select Donations.donation_id, Donations.user_mail, Donations.user_name, Donations.user_phone, Donations.donation_date, Donation_details.program_id, Donation_details.donation_amount, Programs.program_name from Donations" +

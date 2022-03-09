@@ -37,6 +37,7 @@ public class AccountCreateController {
         model.addAttribute("address", address);
         model.addAttribute("phone", phone);
         if (email == null || password == null || name == null || role == null || address == null || phone == null) {
+            model.addAttribute("error","Please fill the form!");
             return "admin/account-create";
         }
         if (email.trim().equals("") || password.trim().equals("") || name.trim().equals("") || address.trim().equals("") || phone.trim().equals("")) {
@@ -55,7 +56,7 @@ public class AccountCreateController {
                         return "admin/account-create";
                     }
                 } else {
-                    model.addAttribute("error", "Username is already exist!");
+                    model.addAttribute("error", accountDAO.getMessage());
                     return "admin/account-create";
                 }
             } else {
@@ -63,7 +64,7 @@ public class AccountCreateController {
                 return "admin/account-create";
             }
         } else {
-            model.addAttribute("error", accountDAO.getMessage());
+            model.addAttribute("error", "Username is already exist!");
             return "admin/account-create";
         }
     }

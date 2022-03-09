@@ -20,6 +20,8 @@ public class Program {
     private int current;
     private int status;
     private String moneyStringCurrent;
+    private double progress;
+
 
 
     public String getMoneyStringCurrent() {
@@ -27,6 +29,11 @@ public class Program {
         NumberFormat formatter = NumberFormat.getCurrencyInstance(vn);
         this.moneyStringCurrent = formatter.format(this.current);
         return moneyStringCurrent;
+    }
+
+    public double getProgress() {
+        this.progress =(double) this.current/(double) this.target * 100;
+        return progress;
     }
 
     public int getCurrent() {

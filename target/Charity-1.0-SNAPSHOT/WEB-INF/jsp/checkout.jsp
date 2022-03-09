@@ -11,11 +11,11 @@
     <c:param name="title" value="Charity | Checkout"/>
 </c:import>
 
-<div class="checkout">
+<div class="checkout ml-auto mr-auto card row">
     <script src="https://www.paypal.com/sdk/js?client-id=Ae1O4w3_sfrGorAl6rv-PBsxANFyTIhWBdWuAJkukFrGHM7TMH_N809iZFm1hKazT7s6YJZUoNfzzk2-&currency=USD"></script>
     <!-- Set up a container element for the button -->
-    <div>
-        <table>
+    <div class="col-lg-12">
+        <table class="ml-auto mr-auto">
             <tr>
                 <td>Email:</td>
                 <td>${account.userMail}</td>
@@ -34,17 +34,18 @@
             </tr>
         </table>
     </div>
-    <div>
+    <div class="col-lg-12">
         <form action="${pageContext.request.contextPath}/donation" method="post" id="donation-form">
             <input type="hidden" name="userMail" value="${account.userMail}"/>
             <input type="hidden" name="userName" value="${account.userName}"/>
             <input type="hidden" name="userPhone" value="${account.phoneNumber}"/>
             <input type="hidden" name="programID" value="${program.id}">
             <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}"/>
-            <input type="text" name="amount" id="amount">
+            <input class="form-control ml-auto mr-auto" type="text" name="amount" id="amount" style="width: 50%;">
         </form>
-
-        <div id="paypal-button-container"></div>
+        <div style="width: 50%;" class="ml-auto mr-auto">
+            <div style="width: 100%;" id="paypal-button-container"></div>
+        </div>
     </div>
 
     <script src="${pageContext.request.contextPath}/asset/paypal.js"></script>
