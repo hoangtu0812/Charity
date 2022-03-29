@@ -25,7 +25,6 @@
         </div>
         <div class="col-md-6">
             <label for="foundation">Foundation</label>
-<%--            <input class="form-control" type="text" name="foundation" id="foundation" value="${program.foundation}"/>--%>
             <select class="form-control" name="foundation" id="foundation">
                 <option value="RAIN COFFEE">RAIN COFFEE</option>
                 <option value="SUGAR Vietnam">SUGAR Vietnam</option>

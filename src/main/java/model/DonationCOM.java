@@ -14,6 +14,7 @@ public class DonationCOM {
     private int amount;
     private String programName;
     private String amountVND;
+    private String tcode;
 
     public String getAmountVND() {
         Locale vn = new Locale("vi", "VN");
@@ -34,6 +35,14 @@ public class DonationCOM {
         this.programID = programID;
         this.amount = amount;
         this.programName = programName;
+    }
+
+    public String getTcode() {
+        return tcode;
+    }
+
+    public void setTcode(String tcode) {
+        this.tcode = tcode;
     }
 
     public String getProgramName() {

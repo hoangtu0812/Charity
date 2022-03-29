@@ -14,8 +14,8 @@
 <div class="checkout ml-auto mr-auto card row">
     <script src="https://www.paypal.com/sdk/js?client-id=Ae1O4w3_sfrGorAl6rv-PBsxANFyTIhWBdWuAJkukFrGHM7TMH_N809iZFm1hKazT7s6YJZUoNfzzk2-&currency=USD"></script>
     <!-- Set up a container element for the button -->
-    <div class="col-lg-12">
-        <table class="ml-auto mr-auto">
+    <div class="col-lg-12" style="margin-bottom: 50px;">
+        <table class="ml-auto mr-auto" style="width: 50%;">
             <tr>
                 <td>Email:</td>
                 <td>${account.userMail}</td>
@@ -41,14 +41,18 @@
             <input type="hidden" name="userPhone" value="${account.phoneNumber}"/>
             <input type="hidden" name="programID" value="${program.id}">
             <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}"/>
-            <input class="form-control ml-auto mr-auto" type="text" name="amount" id="amount" style="width: 50%;">
+            <input type="hidden" name="tcode" id="tcode"/>
+            <input class="form-control ml-auto mr-auto" type="text" name="amount" id="amount" style="width: 50%;" placeholder="Đơn vị tính USD">
+
         </form>
+        <p id="vnd" style="text-align: center"></p>
         <div style="width: 50%;" class="ml-auto mr-auto">
             <div style="width: 100%;" id="paypal-button-container"></div>
         </div>
     </div>
 
     <script src="${pageContext.request.contextPath}/asset/paypal.js"></script>
+    <script src="${pageContext.request.contextPath}/asset/checkout.js"></script>
 
 </div>
 <c:import url="footer.jsp"/>

@@ -31,6 +31,12 @@ public class HomeController {
         List<Program> programList = programDAO.getActiveProgramList(0,5);
         model.addAttribute("programList", programList);
         List<DonationCOM> donationCOMS = donationDAO.getDonationList();
+        int countDonations = donationDAO.count();
+        if(countDonations <= 10) {
+            donationCOMS = donationDAO.getDonationList(0, countDonations-1);
+        } else {
+            donationCOMS = donationDAO.getDonationList(0, 9);
+        }
         model.addAttribute("donationCOMS", donationCOMS);
         return "index";
     }

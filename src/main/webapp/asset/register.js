@@ -27,7 +27,7 @@ function validateEmail() {
     if (input.trim() === '' || input.trim() == null || emailPattern.test(input) === false || testSpace.test(input)) {
         $('#email').addClass('error');
 
-        $('#email-mess').text('Username is invalid!');
+        $('#email-mess').text('Email không hợp lệ!');
         return false;
     } else {
         $('#email').removeClass('error');
@@ -42,7 +42,7 @@ function pwdValidate() {
     let testSpace = /^S/;
     if (input.trim() === '' || input.trim() == null || pwdPattern.test(input) === false || testSpace.test(input)) {
         $('#password').addClass('error');
-        $('#password-mess').text('Password is invalid!');
+        $('#password-mess').text('Mật khẩu không hợp lệ!');
         return false;
     } else {
         $('#password').removeClass('error');
@@ -55,7 +55,7 @@ function nameValidate() {
     let input = $('#name').val();
     if(input.trim() === '' || input.trim() == null){
         $('#name').addClass('error');
-        $('#name-mess').text('Please enter your name!');
+        $('#name-mess').text('Vui lòng nhập tên của bạn!');
         return false;
     } else {
         $('#name').removeClass('error');
@@ -68,7 +68,7 @@ function addValidate() {
     let input = $('#address').val();
     if(input.trim() === '' || input.trim() == null) {
         $('#address').addClass('error');
-        $('#address-mess').text('Please enter your address!');
+        $('#address-mess').text('Vui lòng nhập địa chỉ!');
         return false;
     } else {
         $('#address').removeClass('error');
@@ -81,7 +81,7 @@ function phoneValidate() {
     let input = $('#phone').val();
     if(input.trim() === '' || input.trim() == null || input.length !== 10 || isNaN(input)) {
         $('#phone').addClass('error');
-        $('#phone-mess').text('Phone number is invalid!');
+        $('#phone-mess').text('Số điện thoại không hợp lệ!');
         return false;
     } else {
         $('#phone').removeClass('error');
@@ -102,7 +102,7 @@ function confirmPassword() {
     let confPwd = $('#confirmPassword').val();
     if(pwd != confPwd) {
         $('#confirmPassword').addClass('error');
-        $('#confirmPassword-mess').text('Password is not same!');
+        $('#confirmPassword-mess').text('Mật khẩu không trùng khớp!');
         return false;
     } else {
         $('#confirmPassword').removeClass('error');

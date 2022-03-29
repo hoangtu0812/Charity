@@ -23,7 +23,7 @@ public class AccountLoginController {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(true);
         if(session.getAttribute("email") != null) {
-            return "index";
+            return "redirect:/home";
         }
         Cookie[] cookies = request.getCookies();
         String email = "";
@@ -55,11 +55,16 @@ public class AccountLoginController {
             request.getSession(true).invalidate();
 
             HttpSession session = request.getSession(true);
-
+            if(!accountDAO.status(email)) {
+                model.addAttribute("error", "Tài khoản của bạn đã bị chặn khỏi hệ thống!");
+                return "login";
+            }
             if(!accountDAO.validate(email, password)) {
+                model.addAttribute("error", accountDAO.getMessage());
                 return "login";
             }
             if(accountDAO.login(email,password)) {
+                session.setAttribute("sessionAccount", accountDAO.getAccount(email));
                 session.setAttribute("email",email);
                 session.setAttribute("role", accountDAO.role(email));
                 Cookie emailCookie = new Cookie("email", email);

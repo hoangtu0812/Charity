@@ -25,13 +25,12 @@ public class CreateProgramController {
         response.setCharacterEncoding("UTF-8");
 
         String name = request.getParameter("name");
-//        System.out.println(name);
         String des = request.getParameter("des");
         String detail = request.getParameter("detail");
         String foundation = request.getParameter("foundation");
-//        String src = request.getParameter("src");
         String fileName = file.getOriginalFilename();
         String targetRequest = request.getParameter("target");
+
 
         model.addAttribute("name", name);
         model.addAttribute("des", des);

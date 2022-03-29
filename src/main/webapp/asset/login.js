@@ -13,7 +13,7 @@ function validateEmail() {
     if (input.trim() === '' || input.trim() == null || emailPattern.test(input) === false || testSpace.test(input)) {
         $('#email').addClass('error');
 
-        $('#email-mess').text('Username is invalid!');
+        $('#email-mess').text('Email không hợp lệ!');
         return false;
     } else {
         $('#email').removeClass('error');
@@ -27,7 +27,7 @@ function pwdValidate() {
     let testSpace = /^S/;
     if (input.trim() === '' || input.trim() == null || pwdPattern.test(input) === false || testSpace.test(input)) {
         $('#password').addClass('error');
-        $('#password-mess').text('Password is invalid!');
+        $('#password-mess').text('Mật khẩu không hợp lệ!');
         return false;
     } else {
         $('#password').removeClass('error');

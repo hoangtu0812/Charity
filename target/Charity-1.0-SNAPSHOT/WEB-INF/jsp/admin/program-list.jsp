@@ -4,21 +4,15 @@
     <c:param name="title" value="Charity||Program List"/>
 </c:import>
 <div class="program-list">
-<%--    <div class="program-list-functional">--%>
-<%--        <form action="${pageContext.request.contextPath}/dashboard/search-program" class="form-inline">--%>
-<%--            <input type="text" name="search" class="form-control mr-sm-2" placeholder="Search" value="${key}"/>--%>
-<%--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
-<%--        </form>--%>
-<%--    </div>--%>
     <c:if test="${programList.size() == 0}">
         <h2>${searchMessage}</h2>
     </c:if>
+    <form action="${pageContext.request.contextPath}/dashboard/delete-multiple-program">
     <table>
         <tr>
-            <th>ID</th>
+            <th></th>
             <th class="col-md-4">Program Name</th>
             <th class="col-md-2">Foundation</th>
-<%--            <th class="col-md-1">Image source</th>--%>
             <th class="col-md-2">Current/Target</th>
             <th><i class="fas fa-calendar-alt"></i> End date</th>
             <th>Remaining</th>
@@ -27,12 +21,11 @@
         </tr>
         <c:forEach var="program" items="${programList}">
             <tr>
-                <td>${program.id}</td>
+                <td><input type="checkbox" name="chk" value="${program.id}"></td>
                 <td class="col-md-4"><a
                         href="${pageContext.request.contextPath}/dashboard/program-detail?id=${program.id}">${program.name}</a>
                 </td>
                 <td class="col-md-2">${program.foundation}</td>
-<%--                <td class="col-md-1"><a href="${program.src}">Link</a></td>--%>
                 <td class="col-md-2">${program.moneyStringCurrent}/${program.moneyString}</td>
                 <td>${program.end}</td>
                 <td>${program.left}</td>
@@ -58,6 +51,8 @@
             <a class="btn btn-primary create-btn"
                href="${pageContext.request.contextPath}/dashboard/create-program-form">Create</a>
             <button class="btn btn-primary create-btn" id="reload-btn">Reload</button>
+            <input type="submit" value="Delete Multiple"  class="btn btn-primary create-btn" onclick="return confirm('Are you sure you want to delete these items?')"/>
+
         </div>
         <div class="ml-auto">
             <c:set var="page" value="${1}"/>
@@ -77,6 +72,7 @@
             </ul>
         </div>
     </div>
-
+    </form>
+    <span style="color: red;" class="create-btn">${error}</span>
 </div>
 <c:import url="footer.jsp"/>

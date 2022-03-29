@@ -22,6 +22,9 @@ public class HistoryController {
     public String processRequest(HttpServletRequest request, HttpServletResponse response, Model model) {
         HttpSession session = request.getSession();
         String email = (String) session.getAttribute("email");
+        if (session.getAttribute("email") == null) {
+            return "redirect:/login";
+        }
         if (email.trim().equals("")) {
             return "redirect:/login";
         }

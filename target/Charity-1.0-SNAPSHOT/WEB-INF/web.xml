@@ -60,5 +60,14 @@
         <param-name>pass</param-name>
         <param-value>44254246az</param-value>
     </context-param>
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/page-not-found</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/page-not-found</location>
+    </error-page>
+
 
 </web-app>

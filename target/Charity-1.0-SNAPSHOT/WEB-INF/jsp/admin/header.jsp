@@ -34,15 +34,17 @@
 <div class="viewport">
     <div class="sidebar">
         <header>
-            <a href="${pageContext.request.contextPath}">Dashboard</a>
+            <a href="${pageContext.request.contextPath}/dashboard">Dashboard</a>
         </header>
         <ul class="sidenav">
             <li><a
-                    href="#">Home Page</a></li>
+                    href="${pageContext.request.contextPath}">Home Page</a></li>
             <li id="charity-program"><a href="${pageContext.request.contextPath}/dashboard/program-list">Charity
                 Programs</a></li>
             <li id="account-manager"><a href="${pageContext.request.contextPath}/dashboard/account-list">Account
                 Manager</a></li>
+            <li id="donation-manager"><a href="${pageContext.request.contextPath}/dashboard/donation-list">Donation
+                List</a></li>
         </ul>
     </div>
     <div class="content">
@@ -50,8 +52,33 @@
             <c:if test="${programList != null}">
                 <form action="${pageContext.request.contextPath}/dashboard/search-program" class="form-inline">
                     <input type="text" name="search" class="form-control mr-sm-2" placeholder="Search" value="${key}"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+                </form>
+                <form action="${pageContext.request.contextPath}/dashboard/sort" class="form-inline">
+                    <select class="form-control mr-sm-2" name="by">
+                        <option value="date">Date</option>
+                        <option value="amount">Current Amount</option>
+                    </select>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sort</button>
+                </form>
+            </c:if>
+            <c:if test="${accountList != null}">
+                <form action="${pageContext.request.contextPath}/dashboard/search-account" class="form-inline">
+                    <input type="text" name="search" class="form-control mr-sm-2" placeholder="Search" value="${key}"/>
+                    <select class="form-control mr-sm-2" name="by">
+                        <option value="phone">By phone</option>
+                        <option value="email">By email</option>
+                    </select>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+
+            </c:if>
+            <c:if test="${donationCOMS != null}">
+                <form action="${pageContext.request.contextPath}/dashboard/search-donation" class="form-inline">
+                    <input type="text" name="search" class="form-control mr-sm-2" placeholder="Search" value="${key}"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
             </c:if>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">(${email})</li>

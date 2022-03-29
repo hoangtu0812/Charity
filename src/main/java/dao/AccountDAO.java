@@ -14,6 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
+import java.util.Locale;
 
 @Repository
 public class AccountDAO {
@@ -131,7 +132,7 @@ public class AccountDAO {
         } else if (password.length() < 8) {
             this.message = "Mật khẩu phải có ít nhất 8 ký tự!";
             return false;
-        } else {
+        }  else {
             return true;
         }
     }
@@ -176,8 +177,50 @@ public class AccountDAO {
         return randomPassword;
 
     }
+    public void changeInfo(String email, String name, String phone, String address){
+        String SQL = "update Account set user_name = ? , user_phone = ? , user_address = ? where user_mail = ?";
+        jdbcTemplate.update(SQL, name, phone , address , email);
+    }
+
     public void changePassword(String email, String password) {
         String SQL = "update Account set user_password = ? where user_mail = ?";
         jdbcTemplate.update(SQL, hashPassword(password), email);
+    }
+    public void ban(String email) {
+        String SQL = "update Account set user_status = 0 where user_mail = ?";
+        jdbcTemplate.update(SQL, email);
+    }
+    public void unBan(String email) {
+        String SQL = "update Account set user_status = 1 where user_mail = ?";
+        jdbcTemplate.update(SQL, email);
+    }
+    public boolean status(String email) {
+        String SQL = "select user_status from Account where user_mail = ?";
+        int status = jdbcTemplate.queryForObject(SQL, new Object[] {email}, Integer.class);
+        if(status == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public List<Account> searchByPhone(String phone) {
+        List<Account> accountList = getAccountList();
+        List<Account> returnList = new ArrayList<>();
+        for(Account account : accountList) {
+            if(account.getPhoneNumber().trim().toLowerCase().contains(phone.trim().toLowerCase())) {
+                returnList.add(account);
+            }
+        }
+        return  returnList;
+    }
+    public List<Account> searchByEmail(String email) {
+        List<Account> accountList = getAccountList();
+        List<Account> returnList = new ArrayList<>();
+        for(Account account : accountList) {
+            if(account.getUserMail().trim().toLowerCase().contains(email.trim().toLowerCase())) {
+                returnList.add(account);
+            }
+        }
+        return  returnList;
     }
 }

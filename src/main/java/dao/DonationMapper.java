@@ -17,6 +17,7 @@ public class DonationMapper implements RowMapper<DonationCOM> {
         donationCOM.setProgramID(rs.getInt("program_id"));
         donationCOM.setAmount(rs.getInt("donation_amount"));
         donationCOM.setProgramName(rs.getString("program_name"));
+        donationCOM.setTcode(rs.getString("t_code"));
         return donationCOM;
     }
 }

@@ -17,11 +17,6 @@ public class ListProgramController {
     @Autowired
     private ProgramDAO programDAO;
 
-//    @RequestMapping(value = "/dashboard/program-list")
-//    public ModelAndView programList() {
-//        List<Program> programList = programDAO.getProgramList();
-//        return new ModelAndView("admin/program-list", "programList", programList);
-//    }
     @RequestMapping(value = "/dashboard/program-list")
     public String processRequest(HttpServletRequest request, HttpServletResponse response, Model model) {
         String requestID = request.getParameter("page");

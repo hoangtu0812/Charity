@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="header.jsp">
-    <c:param name="title" value="Charity | Login"/>
+    <c:param name="title" value="Charity | Đăng nhập"/>
 </c:import>
 <div class="login">
     <div class="login-form">
@@ -40,3 +40,4 @@
     </div>
     <script src="${pageContext.request.contextPath}/asset/login.js"></script>
 </div>
+<c:import url="footer.jsp"/>

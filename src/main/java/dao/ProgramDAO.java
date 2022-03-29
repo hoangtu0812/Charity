@@ -30,6 +30,10 @@ public class ProgramDAO {
         String SQL = "select * from Programs order by program_endtime";
         return jdbcTemplate.query(SQL, new ProgramMapper());
     }
+    public List<Program> getSortedProgramListByAmount() {
+        String SQL = "select * from Programs order by program_current DESC ";
+        return jdbcTemplate.query(SQL, new ProgramMapper());
+    }
     public List<Program> getActiveProgram() {
         String SQL = "select * from Programs where program_status = 1 order by program_endtime";
         return jdbcTemplate.query(SQL, new ProgramMapper());
@@ -58,6 +62,22 @@ public class ProgramDAO {
         }
 
     }
+    public int countActive() {
+        String SQL = "select count(*) from Programs where program_status = 1";
+        int count = jdbcTemplate.queryForObject(SQL, Integer.class);
+        return count;
+    }
+    public int getPageActive() {
+        int allPrograms = countActive();
+        int n = allPrograms/9;
+        int r = allPrograms%9;
+        if(r == 0) {
+            return n;
+        } else {
+            return n+1;
+        }
+
+    }
     /**
      *
      * */
@@ -71,6 +91,14 @@ public class ProgramDAO {
     }
     public List<Program> getSortedProgramList(int first, int last) {
         List<Program> programList = getSortedProgramList();
+        List<Program> programList1 = new ArrayList<>();
+        for(int i = first; i <= last; i++) {
+            programList1.add(programList.get(i));
+        }
+        return programList1;
+    }
+    public List<Program> getSortedProgramListByAmount(int first, int last) {
+        List<Program> programList = getSortedProgramListByAmount();
         List<Program> programList1 = new ArrayList<>();
         for(int i = first; i <= last; i++) {
             programList1.add(programList.get(i));

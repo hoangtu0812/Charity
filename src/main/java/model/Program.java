@@ -21,6 +21,7 @@ public class Program {
     private int status;
     private String moneyStringCurrent;
     private double progress;
+    private int sum = 0;
 
 
 

@@ -57,5 +57,6 @@
            href="${pageContext.request.contextPath}/dashboard/account-list">Cancel</a>
     </form>
 </div>
-<script src="${pageContext.request.contextPath}/asset/create-account-admin.js"></script>
+<%--<script src="${pageContext.request.contextPath}/asset/create-account-admin.js"></script>--%>
+<script src="${pageContext.request.contextPath}/asset/update-account.js"></script>
 <c:import url="footer.jsp"/>

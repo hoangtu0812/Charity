@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="header.jsp">
-    <c:param name="title" value="Charity | Register"/>
+    <c:param name="title" value="Charity | Đăng ký"/>
 </c:import>
 <div class="register">
     <div class="register-form">
@@ -63,7 +63,7 @@
             </div>
             <div>
                 <input type="submit" value="Đăng ký" class="btn btn-primary" onclick="return submitValidate()">
-                <a href="#">Đăng nhập</a>
+                <a href="${pageContext.request.contextPath}/login">Đăng nhập</a>
             </div>
             <span style="color: red;">${error}</span>
         </form>

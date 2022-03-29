@@ -14,7 +14,6 @@
   <div class="register-form">
     <form action="<c:url value="/change-password"/> " method="post">
       <div class="form-group row">
-<%--        <label for="email" class="col-12 col-sm-12 col-lg-2">Email</label>--%>
         <div class="col-12 col-sm-12 col-lg-10">
           <input type="hidden" name="email" id="email" placeholder="Nhập email của bạn..."
                  class="form-control" value="${email}"/>

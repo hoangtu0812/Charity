@@ -18,9 +18,8 @@ paypal.Buttons({
             // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             var transaction = orderData.purchase_units[0].payments.captures[0];
-           //window.location.href = "${pageContext.request.contextPath}/home";
+            $('#tcode').val(transaction.id);
             document.getElementById("donation-form").submit();
-            //window.location.href = document.getElementById('contextPath').value + '/home';
             alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
             console.log(transaction.status);
 
@@ -33,3 +32,5 @@ paypal.Buttons({
         });
     }
 }).render('#paypal-button-container');
+
+

@@ -15,5 +15,13 @@ public class WebController {
         return "admin/dashboard";
     }
 
+    @RequestMapping(value = "/feedback")
+    public String feedBack() {
+        return "feedback";
+    }
 
+    @RequestMapping(value = "/page-not-found")
+    public String pageNotFound() {
+        return "404-page";
+    }
 }

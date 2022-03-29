@@ -17,11 +17,6 @@ public class DashboardController {
         return "admin/create-program";
     }
 
-//    @RequestMapping(value = "/dashboard/account-create-form")
-//    public String createAccountForm() {
-//        return "admin/account-create";
-//    }
-
     @Autowired
     private ProgramDAO programDAO;
 

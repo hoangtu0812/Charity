@@ -29,7 +29,7 @@
                             <div class="progress">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="${program.progress}" aria-valuemin="0" aria-valuemax="100" style="width: ${program.progress}%"></div>
                             </div>
-                            <p>Còn lại ${program.left} ngày</p>
+                            <p>Còn lại <b>${program.left}</b> ngày</p>
                             <a class="btn btn-primary" href="<c:url value="/detail?id=${program.id}"/> ">Quyên góp</a>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" style="width: 50%; text-align: center;">
     <div class="accordion" id="accordionExample">
         <div class="steps">
             <progress id="progress" value=0 max=100 ></progress>
@@ -66,7 +66,7 @@
                     1
                 </button>
                 <div class="step-title">
-                    First Step
+                    Bước 1
                 </div>
             </div>
             <div class="step-item">
@@ -75,7 +75,7 @@
                     2
                 </button>
                 <div class="step-title">
-                    Second Step
+                    Bước 2
                 </div>
             </div>
             <div class="step-item">
@@ -84,7 +84,7 @@
                     3
                 </button>
                 <div class="step-title">
-                    Third Step
+                    Bước 3
                 </div>
             </div>
         </div>
@@ -96,13 +96,8 @@
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                    squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                    nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                    single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                    beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                    lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                    probably haven't heard of them accusamus labore sustainable VHS.
+                    <h4>Chọn chương trình muốn quyên góp</h4>
+                    <img style="width: 50%;" src="${pageContext.request.contextPath}/image/step1.png"/>
                 </div>
             </div>
         </div>
@@ -112,12 +107,8 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="card-body">
-                    CodeHim is one of the BEST developer websites that provide web designers and developers with a simple way to preview and download a variety of free code & scripts.<br>
-                    <p class="text-muted">nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                        single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                        beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                        lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                        probably haven't heard of them accusamus labore sustainable VHS.</p>
+                    <h4>Đăng nhập</h4>
+                    <img style="width: 50%;" src="${pageContext.request.contextPath}/image/step2.png"/>
                 </div>
             </div>
         </div>
@@ -128,13 +119,8 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                  data-bs-parent="#accordionExample">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                    squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                    nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                    single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                    beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                    lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                    probably haven't heard of them accusamus labore sustainable VHS.
+                    <h4>Nhập số tiền muốn quyên góp</h4>
+                    <img style="width: 50%;" src="${pageContext.request.contextPath}/image/step3.png"/>
                 </div>
             </div>
         </div>

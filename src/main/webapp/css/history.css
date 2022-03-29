@@ -1,0 +1,12 @@
+@media only screen and (min-width: 992px) {
+    .history {
+        width: 992px;
+    }
+
+}
+@media only screen and (max-width: 991px) {
+    .history {
+        width: 80%;
+    }
+
+}

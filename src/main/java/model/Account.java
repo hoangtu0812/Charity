@@ -7,6 +7,7 @@ public class Account {
     private int role;
     private String address;
     private String phoneNumber;
+    private int status;
 
     public  Account() {
 
@@ -19,6 +20,14 @@ public class Account {
         this.role = role;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public void setUserMail(String userMail) {
